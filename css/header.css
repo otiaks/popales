@@ -1,0 +1,31 @@
+header {
+    display: flex;
+    height: 70px;
+    align-items: center;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    background: #fff;
+    box-shadow: 0px 2px 10px 0 rgba(0, 0, 0, 0.16);
+}
+.p-logo__area {
+    background-image: url("https://dl.dropboxusercontent.com/s/p5pu8skoc606kjq/popales.png?dl=0");
+    height: 50px;
+    width: 300px;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.p-menu__area {
+    flex-grow: 1;
+    text-align: right;
+}
+.p-menu__area span {
+    padding-right: 20px;
+}
+.p-menu__area span a {
+    text-decoration: none;
+    color: #383838;
+    font-size: 15px;
+    line-height: 1.7;
+}
