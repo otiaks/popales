@@ -1,31 +1,23 @@
 <?php
 /*
-Template Name: レストランを借りる
+Template Name: topページ_owner
 */
 ?>
-<?php get_header('borrow'); ?>
-<main>
-    <div class="p-top__area is-borrow">
-        <div class="p-text__area"><span>POPALESで夢を叶えよう</span></div>
-        <div class="p-form__area">
-            <div class="p-search__area">
-                <div class="p-search__box">
-                    <div class="p-icon__search"></div>
-                    <input type="text" placeholder="エリア・駅名など">
-                </div>
-                <button class="p-btn__round is-search">検索する</button>
-                <span>カテゴリーで探す</span>
-                <div class="p-category__area">
-                    <div class="p-category__label">
-                        <span><a href="http://" target="_blank" rel="noopener noreferrer">金額</a></span>
-                        <span><a href="http://" target="_blank" rel="noopener noreferrer">人数</a></span>
-                        <span><a href="http://" target="_blank" rel="noopener noreferrer">レストランタイプ</a></span>
-                        <span><a href="http://" target="_blank" rel="noopener noreferrer">設備</a></span>
-                        <span><a href="http://" target="_blank" rel="noopener noreferrer">時間</a></span>
-                    </div>
-                </div>
-            </div>
+<?php get_header('top'); ?>
 
+<main>
+    <div class="p-top__area">
+        <div class="p-text__area"><span>夢に力を貸しませんか？</span></div>
+        <div class="p-form__area">
+            <div class="p-input__field">
+                <i class="far fa-envelope p-icon__mail"></i>
+                <input type="text" placeholder="メールアドレス">
+                <button class="p-btn__round is-register">新規登録</button>
+            </div>
+            <div class="p-btn__area">
+                <button class="p-btn__square is-login">ログイン</button>
+                <button class="p-btn__square is-detail">詳細はこちら</button>
+            </div>
         </div>
     </div>
     <div class="p-intervew__area">

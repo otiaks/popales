@@ -18,6 +18,8 @@ a {
     cursor: pointer;
     padding: 13px 0;
     font-size: 1rem;
+    background: #ff6347;
+    color: #fff;
 }
 .p-btn__square {
     border-radius: 8px;

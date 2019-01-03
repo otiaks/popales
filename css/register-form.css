@@ -1,0 +1,107 @@
+.p-form__area {
+    text-align: center;
+    height: calc(100vh - 70px - 15vh);
+}
+.p-form__title {
+    padding: 30px 0;
+}
+.p-form__title span {
+    font-size: 30px;
+    font-weight: 600;
+}
+.p-flow__area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.p-flow__parts {
+    height: 20px;
+    background: #ffdad3;
+    color: #ff6347;
+    font-weight: 600;
+    padding: 5px 48px;
+    border: solid 5px #ffdad3;
+    position: relative;
+}
+.p-flow__parts:nth-child(n+2)::before {
+    position: absolute;
+    content: "";
+    background: #ffdad3;
+    top: -5px;
+    left: -5px;
+    border-left: 20px solid #fff;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+}
+.p-flow__parts:nth-last-child(n+2)::after {
+    position: absolute;
+    content: "";
+    background: #fff;
+    top: -5px;
+    right: -5px;
+    border-left: 20px solid #ffdad3;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+}
+
+.p-flow__parts.is-active {
+    border-color: #ff6347;
+    color: #383838;
+}
+.is-active::before {
+    /* background: blue;
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 28px;
+    top: -7.5px;
+    right: -16px;
+    transform: rotate(-45deg);
+    z-index: 2; */
+}
+.p-flow__parts.is-active::after {
+    /* background: blue;
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 28px;
+    top: -7.5px;
+    right: -16px;
+    transform: rotate(-45deg);
+    z-index: 2; */
+}
+.p-input__area {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+    margin: 40px auto;
+    border: solid 1px #707070;
+    overflow: hidden;
+    border-radius: 24px;
+}
+.p-input__area input {
+    flex-grow: 1;
+    border: none;
+    padding: 0 30px;
+    outline: none;
+}
+.p-input__area input:nth-last-child(n+2){
+    border-bottom: 1px solid #707070;
+}
+.p-name__area {
+    display: flex;
+    flex-grow: 1;
+}
+.p-name__area input {
+    flex-grow: 1;
+    border: none;
+    border-bottom: 1px solid #707070;
+    padding: 0 30px;
+}
+.p-name__area input:first-child {
+    border-right: solid 1px #707070;
+}
+.p-btn__round.is-form {
+    width: 400px;
+}
