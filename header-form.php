@@ -23,7 +23,8 @@
         <?php endif?>
         <span><a href="<?php echo home_url(); ?>/chef/" rel="noopener noreferrer">メッセージ</a></span>
         <span><a href="<?php echo home_url(); ?>/chef/" rel="noopener noreferrer">ヘルプ</a></span>
-        <span><a href="<?php echo home_url(); ?>/chef/" rel="noopener noreferrer">新規登録</a></span>
+        <span><a href="<?php echo home_url(); ?>/register/" rel="noopener noreferrer">新規登録</a></span>
         <span><a href="<?php echo home_url(); ?>/login/" rel="noopener noreferrer">ログイン</a></span>
     </div>
+    <?php wp_head(); ?>
 </header>
