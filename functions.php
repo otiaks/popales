@@ -16,12 +16,12 @@ $tokendir = dirname( __FILE__ ). '/token/';
 
 function create_token() {
     global $tokendir;
-    $limit = (time()+3600);
+    $limit = (time()+1800);
     $token= rand(0,100).uniqid();//トークン
     touch($tokendir.$token.".log");//トークンファイル作成
-    $url = $_SERVER["HTTP_REFERER"]."?key=".$token;
+    $url = home_url()."/register-profile"."?key=".$token;
     file_put_contents($tokendir.$token.".log", $limit, LOCK_EX);//期限保存
-    delete_old_token($tokendir);//古いトークン削除
+    delete_old_token($token);//古いトークン削除
     // //本文スタイル
     $message="登録を完了するには、以下のアドレスを開いてください。\n60分以内にアクセスが無かった場合は無効となります。\n";
     $message.=$url."\n\n";
@@ -31,7 +31,6 @@ function create_token() {
 
 function delete_old_token($token = NULL) {
     global $tokendir;
-     
     if (is_dir($tokendir)) {
         if ($dh = opendir($tokendir)) {
             while (($file = readdir($dh)) !== false) {
@@ -39,8 +38,7 @@ function delete_old_token($token = NULL) {
                     $data = file_get_contents($tokendir.$file);
                     if(time() > $data) unlink($tokendir.$file);
                 }else if(is_file($tokendir.$file) && !is_null($token)){
-                    if(time() < (filemtime($tokendir.$token.".log")+3600) ){
-                        @unlink($tokendir.$token.".log");
+                    if(time() < (filemtime($tokendir.$token.".log")+1800) ){
                         return true;
                     }else{
                         @unlink($tokendir.$token.".log");
@@ -87,3 +85,28 @@ function twpp_enqueue_scripts() {
   );
 }
 add_action( 'wp_enqueue_scripts', 'twpp_enqueue_scripts' );
+
+
+function is_token_exist() {
+    if(strstr($_SERVER['REQUEST_URI'],'/register-profile')): 
+        if(!strstr($_SERVER['REQUEST_URI'],'?key=')):
+            show_404();
+        else:
+            $token = explode('?key=',$_SERVER['REQUEST_URI'])[1];
+            delete_old_token($token);
+            global $tokendir;
+            $file_name = $tokendir . $token. '.log';
+            if(!is_file($file_name)):
+                show_404();
+            endif;
+        endif;
+    endif; 
+}
+function show_404() {
+    global $wp_query;
+    $wp_query->set_404();
+    status_header(404);
+    include( get_query_template( '404' ) );
+    exit();
+}
+add_action( 'template_redirect', 'is_token_exist' );

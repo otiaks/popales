@@ -17,14 +17,14 @@
     </div>
     <div class="p-menu__area">
         <?php if(strstr($_SERVER['REQUEST_URI'],'owner')==true):?>
-            <span><a href="<?php echo home_url(); ?>/chef/" rel="noopener noreferrer">レストランを借りたい方</a></span>
+            <span><a href="<?php echo home_url(); ?>/chef" rel="noopener noreferrer">レストランを借りたい方</a></span>
         <?php else:?>
-            <span><a href="<?php echo home_url(); ?>/owner/" rel="noopener noreferrer">レストランを借す方</a></span>
+            <span><a href="<?php echo home_url(); ?>/owner" rel="noopener noreferrer">レストランを借す方</a></span>
         <?php endif?>
-        <span><a href="<?php echo home_url(); ?>/chef/" rel="noopener noreferrer">メッセージ</a></span>
-        <span><a href="<?php echo home_url(); ?>/chef/" rel="noopener noreferrer">ヘルプ</a></span>
-        <span><a href="<?php echo home_url(); ?>/register/" rel="noopener noreferrer">新規登録</a></span>
-        <span><a href="<?php echo home_url(); ?>/login/" rel="noopener noreferrer">ログイン</a></span>
+        <span><a href="<?php echo home_url(); ?>/chef" rel="noopener noreferrer">メッセージ</a></span>
+        <span><a href="<?php echo home_url(); ?>/chef" rel="noopener noreferrer">ヘルプ</a></span>
+        <span><a href="<?php echo home_url(); ?>/register-mail" rel="noopener noreferrer">新規登録</a></span>
+        <span><a href="<?php echo home_url(); ?>/login" rel="noopener noreferrer">ログイン</a></span>
     </div>
     <?php wp_head(); ?>
 </header>

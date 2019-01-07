@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: 新規登録フォーム_共通
+Template Name: 新規登録フォーム_メール認証
 */
 ?>
 <?php get_header('form'); ?>
@@ -26,7 +26,7 @@ Template Name: 新規登録フォーム_共通
             <div class="p-flow__area"></div>
             <div class="p-register__text">
                 <div class="p-text__block">
-                    <span>OPALESにご登録いただきまして、誠にありがとうございます。</span><br>
+                    <span>POALESにご登録いただきまして、誠にありがとうございます。</span><br>
                     <span>ご登録いただいたメールアドレスに確認メールを送信いたしました。</span><br>
                 </div>
                 <div class="p-text__block">
