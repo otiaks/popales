@@ -97,37 +97,34 @@
     flex-direction: column;
     width: 400px;
     margin: 0 auto 45px;
+}
+.p-input__area input::placeholder {
+    color: #b7b7b7;
+}
+.p-input__area .p-wrap__confirm {
     border: solid 1px #707070;
     overflow: hidden;
-    border-radius: 24px;
+    border-radius: 10px;
 }
-.p-input__area input {
-    flex-grow: 1;
+.p-wrap__confirm .p-input__style {
     border: none;
-    padding: 0 30px;
-    outline: none;
-    height: 40px;
-    width: 340px;
-    font-size: 15px;
+    border-radius: 0;
 }
-.wpcf7-form-control-wrap:nth-last-child(n+2) {
+.p-input__area .p-wrap__confirm .wpcf7-form-control-wrap:first-of-type input {
     border-bottom: solid 1px #707070;
 }
-.p-name__area {
-    display: flex;
-    flex-grow: 1;
-}
-.p-name__area input {
-    flex-grow: 1;
-    border: none;
-    border-bottom: 1px solid #707070;
-    padding: 0 30px;
-}
-.p-name__area input:first-child {
-    border-right: solid 1px #707070;
+.is-basis-info .p-wrap__confirm input:first-child {
+    border-bottom: solid 1px #707070;
+} 
+.p-input__area input { 
+    width: 340px;
 }
 .p-btn__round.is-form {
     width: 400px;
+    margin-top: 50px;
+}
+.p-pass_area {
+    position: relative;
 }
 
 /* step2 */
@@ -143,4 +140,98 @@
 }
 .p-register__text .p-text__block {
     margin-bottom: 25px;
+} 
+
+/* 基本情報画面 */
+.p-error__text {
+    position: absolute;
+    position: absolute;
+    font-size: 14px;
+    font-weight: 600;
+    height: 40px;
+    line-height: 1.8;
+    padding-left: 10px;
+    color: #ff6347;
+}
+.p-name__area {
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+}
+.p-name__area input {
+    width: 130px;
+}
+.p-name__area input:first-child {
+    margin-right: 20px;
+}
+.p-form__label {
+    text-align: left;
+    margin: 10px 10px 5px;
+    font-weight: 600;
+}
+
+/* プロフィール画面 */
+.is-profile {
+    display: none;
+}
+.p-img__area.p-input__style {
+    display: flex;
+    flex-direction: row;
+    height: 120px;
+}
+.p-img__area.p-input__style input {
+    width: auto;
+}
+.p-text__area.p-input__style {
+    height: 120px;
+}
+.p-show__img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: auto;
+    border: solid 0.5px #707070;
+    background-color: #fff;
+    background-image: url("https:drive.google.com/uc?export=view&id=1ZM8ypH3fky4QO7bRn-CZmNtQZFH7htnO");
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
 }   
+.p-post__img input{
+    display: none;
+}
+.p-post__img {
+    background: #b7b7b7;
+    color: white;
+    width: 150px;
+    height: 20px;
+    border-radius: 20px;
+    line-height: 1.5;
+    font-size: 12px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.p-btn__area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.p-btn__area input {
+    width: 180px;
+    height: 40px;
+    line-height: 1;
+    font-weight: 600;
+}
+.p-btn__area  .ajax-loader {
+    position: absolute;
+}
+.p-btn__round.is-temp {
+    background: #fff;
+    border: solid 5px #ff6347;
+    color: #383838;
+    line-height: 0;
+}
+/* 登録完了ボタン */
+.p-register__complete {
+    display: none;
+}
