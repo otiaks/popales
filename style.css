@@ -19,8 +19,10 @@ a {
     cursor: pointer;
     padding: 13px 0;
     font-size: 1rem;
+    font-weight: 600;
     background: #ff6347;
     color: #fff;
+    line-height: 1;
 }
 .p-btn__square {
     border-radius: 8px;
@@ -29,6 +31,21 @@ a {
     outline: none;
     padding: 13px 0;
     font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+}
+.p-btn__border {
+    border-radius: 29px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 13px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    border: solid 5px #ff6347;
+    background: #fff;
+    color: #383838;
+    line-height: 0;
 }
 .p-input__style {
     border: none;

@@ -1,23 +1,37 @@
 .p-form__area {
     text-align: center;
-    height: calc(100vh - 70px - 15vh);
+    padding-top: 50px;
+    height: calc(100vh - 70px - 15vh - 50px); /* 画面 - header - footer- padding-top*/
+    display: flex;
+    flex-direction: column;
 }
 .p-form__title {
     padding: 30px 0;
+    position: relative;
+}
+.p-form__title::after {
+    position: absolute;
+    content: '';
+    border: solid 2.5px #ff6347;
+    width: 200px;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 .p-form__title span {
     font-size: 30px;
     font-weight: 600;
 }
+
+/* フォームフローデザイン */
 .p-flow__area {
     display: flex;
     flex-direction: row;
     justify-content: center;
     height: 40px;
     width: 800px;
-    background-image: url("https:drive.google.com/uc?export=view&id=1RxQgKiTcj3Twazl4jozUcR9eEFT7yK-L");
-    background-repeat: no-repeat;
-    margin: 0 auto 50px;
+    margin: 0 auto 30px;
 }
 .p-flow__wrap {
     width: 160px;
@@ -26,72 +40,63 @@
     background: #ffdad3;
     color: #ff6347;
     font-weight: 600;
-    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
-.p-flow__wrap:nth-child(n+2)::before {
+.p-flow__parts {
+    position: relative;
+    flex-grow: 1;
+}
+.p-flow__wrap:nth-child(n+2) .p-flow__parts{
+    padding-left: 8px;
+}
+.p-flow__wrap:nth-child(n+2) .p-flow__parts::before {
     position: absolute;
     content: "";
     background: #ffdad3;
-    top: 0px;
+    top: -11px;
     left: 0px;
     border-left: 20px solid #fff;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
     z-index: 1;
 }
-.p-flow__wrap:nth-last-child(n+2)::after {
+.p-flow__wrap:nth-last-child(n+2) .p-flow__parts::after {
     position: absolute;
     content: "";
     background: #fff;
-    top: 0px;
+    top: -11px;
     right: 0px;
     border-left: 20px solid #ffdad3;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
     z-index: 1;
 }
-/* .is-active, .p-flow__wrap.is-active::before {
-    background: #ff6347;
-}
-.p-flow__wrap.is-active::after {
-    border-left-color: #ff6347;
-}
-.p-flow__parts {
-    position: relative;
+.p-flow__wrap.is-active {
     color: #383838;
-    width: 122px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 5px #ffdad3;
-    background: #ffdad3;
-    margin-left: 5px;
 }
-.p-flow__parts::before {
-    z-index: 2;
+.p-flow__wrap.is-active::before {
+    content: '';
+    background-size: cover;
+    width: 160px;
+    height: 40px;
     position: absolute;
-    content: "";
-    background: #ffdad3;
-    top: -5px;
-    left: 0;
-    border-left: 15px solid #fff;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
+    z-index: 2;
 }
-.p-flow__parts::after {
-    z-index: 2;
-    position: absolute;
-    content: "";
-    background: transparent;
-    top: -5px;
-    right: -20px;
-    border-left: 15px solid #ffdad3;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-} */
+.p-flow__wrap.is-active::before {
+    background-image: url(../img/icon/1-3frame.png);
+}
+.p-flow__wrap:first-of-type.is-active::before {
+    background-image: url(../img/icon/0frame.png);
+}
+.p-flow__wrap:last-of-type.is-active::before {
+    background-image: url(../img/icon/4frame.png);
+}
+
+
+/* フォームデザイン */
 .p-input__area {
     display: flex;
     flex-direction: column;
@@ -110,10 +115,7 @@
     border: none;
     border-radius: 0;
 }
-.p-input__area .p-wrap__confirm .wpcf7-form-control-wrap:first-of-type input {
-    border-bottom: solid 1px #707070;
-}
-.is-basis-info .p-wrap__confirm input:first-child {
+.p-wrap__confirm .p-input__style:first-of-type {
     border-bottom: solid 1px #707070;
 } 
 .p-input__area input { 
@@ -123,16 +125,13 @@
     width: 400px;
     margin-top: 50px;
 }
-.p-pass_area {
-    position: relative;
+.p-input__area.is-register__mail {
+    padding-top: 20px;
 }
 
-/* step2 */
+/* メール送信完了画面 */
 .is-step2 {
     display: none;
-}
-.is-step2 .p-flow__area {
-    background-image: url("https:drive.google.com/uc?export=view&id=1v2Opt13echL9HJVvLMC27X6wqLMYXy28");
 }
 .p-register__text {
     font-size: 15px;
@@ -192,7 +191,7 @@
     margin: auto;
     border: solid 0.5px #707070;
     background-color: #fff;
-    background-image: url("https:drive.google.com/uc?export=view&id=1ZM8ypH3fky4QO7bRn-CZmNtQZFH7htnO");
+    background-image: url(../img/icon/face.png);
     background-size: 60%;
     background-position: center;
     background-repeat: no-repeat;
@@ -219,19 +218,27 @@
 .p-btn__area input {
     width: 180px;
     height: 40px;
-    line-height: 1;
-    font-weight: 600;
 }
 .p-btn__area  .ajax-loader {
     position: absolute;
 }
-.p-btn__round.is-temp {
-    background: #fff;
-    border: solid 5px #ff6347;
-    color: #383838;
-    line-height: 0;
-}
 /* 登録完了ボタン */
-.p-register__complete {
+.p-register__complete, .p-register__temporary {
     display: none;
+    flex-grow: 1;
+    flex-direction: column;
+}
+.p-register__text {
+    flex-grow: 1;
+}
+.p-footer__btn input{
+    width: 200px;
+    height: 40px;
+}
+.p-explain__text {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.is-required {
+    color: #ff6347;
 }

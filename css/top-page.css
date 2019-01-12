@@ -3,7 +3,6 @@
     height: 92vh;
     display: flex;
     align-items: center;
-    background-color: #ffffff52;
 }
 .p-top__area::before {
     position: absolute;
@@ -13,13 +12,13 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-image: url("http://drive.google.com/uc?export=view&id=1ghct9t6CHVVSW2TNakX2DMwmPH-DXqHI");
+    background-image: url(../img/top_owner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 .p-top__area.is-borrow::before {
-    background-image: url("http://drive.google.com/uc?export=view&id=1Zd6wj2smN6OWf2YycDTrAqu1P21lKlNb");
+    background-image: url(../img/top_chef.png);
 }
 .p-text__area {
     flex-grow: 1;
@@ -196,7 +195,7 @@
     padding: 0 10px;
 }
 .p-icon__search {
-    background-image: url("http://drive.google.com/uc?export=view&id=1_HZwmdyV6L8FoGmZbrRxLsm7ejiUovQL");
+    background-image: url(../img/icon/gps.png);
     height: 100%;
     width: 30px;
     background-repeat: no-repeat;

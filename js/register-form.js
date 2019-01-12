@@ -17,7 +17,6 @@ jQuery(function ($) {
     // フォームの画像選択後に表示
     $(document).ready(function () {
         $('input[name="user-img"]').change(function () {
-            console.log("lja;faj");
             var file = $(this).prop('files')[0];
             var fr = new FileReader();
             $(".p-show__img").css("background-image", "none");
@@ -54,6 +53,9 @@ jQuery(function ($) {
           }
         });
         if (is_Filled) {
+            $(".p-flow__wrap").eq(2).removeClass('is-active');
+            $(".p-flow__wrap").eq(3).addClass('is-active');
+            $(".p-form__title span").text("プロフィール入力");
             $(".is-basis-info").hide();
             $(".is-profile").show();
         } else {
@@ -69,42 +71,72 @@ jQuery(function ($) {
     });
 
     $("#form-basis-info").submit(function (event) {
-        $button = $(this).find("#saved_comp");
-        // クリックイベントをこれ以上伝播させない
+        var $button = $(this).find("input[type=submit]:focus");
         event.preventDefault();
-        // フォームデータから、サーバへ送信するデータを作成
         var fd = new FormData(this);
-        // サーバー側で何の処理をするかを指定。後ほどphp側で実装する
-        fd.append('action', 'ajaxtest');
-        // 送信
+        fd.append('action', 'register_comp');
         $.ajax({
             type: 'POST',
-            url: ajaxurl, //functions.phpで定義した変数
+            url: ajaxurl, //form-send-mail.phpで定義した変数
             data: fd,
             processData: false,
             contentType: false,
-
-            // 送信前
             beforeSend: function(xhr, settings) {
-            // ボタンを無効化し、二重送信を防止
-            $button.attr("disabled", true);
+                $button.attr("disabled", true);
             },
-            // 応答後
             complete: function(xhr, textStatus) {
-            // ボタンを有効化し、再送信を許可
-            $button.attr("disabled", false);
+                $button.attr("disabled", false);
             },
-            // 通信成功時の処理
             success: function(result, textStatus, xhr) {
-            // 入力値を初期化
-            $(".p-register__complete").show();
-            $(".p-register__area").remove();
+                $(".p-flow__wrap").eq(3).removeClass('is-active');
+                $(".p-flow__wrap").eq(4).addClass('is-active');
+                $("#form-basis-info").remove();
+                if ($button.attr("name") == "register_tmp_btn") {
+                    $(".p-form__title span").text("一時保存完了");
+                    $(".p-register__temporary").css('display','flex');
+                } else if ($button.attr("name") == "register_comp_btn") {
+                    $(".p-form__title span").text("登録完了");
+                    $(".p-register__complete").css('display', 'flex');
+                }
             },
-            // 通信失敗時の処理
             error: function(xhr, textStatus, error) {
-            alert("NG...");
+                alert("NG...");
             }
-      });
+        });
+    });
+
+
+    $("#form-register-mail").submit(function (event) {
+        var $button = $(this).find("input[type=submit]:focus");
+        event.preventDefault();
+        var formData = new FormData(this);
+        /* <![CDATA[ */
+        var slag = url_slag;
+        /* ]]> */
+        formData.append("action", "register_mail");
+        formData.append("url-slag", slag);
+        $.ajax({
+            type: "POST",
+            url: ajaxurl, //form-send-mail.phpで定義した変数,
+            data: formData,
+            processData: false,
+            contentType: false,
+        }).done(function (res) {
+            console.log("ajax通信に成功しました");
+            $(".p-flow__wrap")
+              .eq(0)
+              .removeClass("is-active");
+            $(".p-flow__wrap")
+              .eq(1)
+              .addClass("is-active");
+            $(".is-step1").remove();
+            $(".is-step2").show();
+        }).fail(function(xhr, textStatus, errorThrown) {
+            console.log("ajax通信に失敗しました");
+            console.log(xhr);
+            console.log(textStatus);
+            console.log(errorThrown);
+        });
     });
 
 
@@ -130,7 +162,7 @@ jQuery(function ($) {
             }
         });
     }
-
+    
 });
 
 

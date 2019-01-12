@@ -3,7 +3,7 @@
 Template Name: topページ_chef
 */
 ?>
-<?php get_header("top"); ?>
+<?php get_header(); ?>
 <main>
     <div class="p-top__area is-borrow">
         <div class="p-text__area"><span>POPALESで夢を叶えよう</span></div>

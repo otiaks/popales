@@ -3,7 +3,7 @@
 Template Name: topページ_owner
 */
 ?>
-<?php get_header('top'); ?>
+<?php get_header(); ?>
 
 <main>
     <div class="p-top__area">

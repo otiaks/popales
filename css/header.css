@@ -5,16 +5,16 @@ header {
     position: sticky;
     z-index: 100;
     top: 0;
-    background: #fff;
     box-shadow: 0px 2px 10px 0 rgba(0, 0, 0, 0.16);
 }
+header.is_chef {
+    background: #fff;
+}
+header.is_owner {
+    background: #ff6347;
+}
 .p-logo__area {
-    background-image: url("https://dl.dropboxusercontent.com/s/p5pu8skoc606kjq/popales.png?dl=0");
-    height: 50px;
-    width: 300px;
-    background-size: 70%;
-    background-position: center;
-    background-repeat: no-repeat;
+    margin-left: 50px;
 }
 .p-menu__area {
     flex-grow: 1;
@@ -28,4 +28,24 @@ header {
     color: #383838;
     font-size: 15px;
     line-height: 1.7;
+}
+.is_owner .p-menu__area span a {
+    color: #fff;
+}
+.is_chef .p-menu__area span a {
+    color: #383838;
+}
+.p-logo__area a .p-logo__text {
+    display: none;
+}
+.is_owner .p-logo__area a {
+    display: flex;
+    align-items: flex-end;
+}
+.is_owner .p-logo__area a .p-logo__text {
+    display: block;
+    color: #fff;
+    font-family: Krungthep;
+    font-size: 1rem;
+    padding-left: 8px;
 }
